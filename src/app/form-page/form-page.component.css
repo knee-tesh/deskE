@@ -1,0 +1,28 @@
+.formClass{
+    background-color: #fff;
+    display: inline-flex;
+    flex-flow: column;
+    float:right;
+    margin-right: 15px;
+    margin-top: 15px;
+    /* border: */
+    /* height: 450px; */
+
+}
+.formContainer{
+    display: inline;
+    float: right;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin-right: 15px;
+    margin-top:15px;
+}
+.mat-form-field{
+    flex: 1;
+    margin-left: 10px;
+    width: 270px;
+}
+.flagimg{
+    background: no-repeat scroll 7px 7px;
+    padding-left:30px;
+}

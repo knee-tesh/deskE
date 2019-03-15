@@ -1,0 +1,56 @@
+<!-- Form Starts -->
+<form [formGroup]="deskForm" class="formContainer" (ngSubmit)="onSubmit()">
+
+  <!-- <p style="font-size: 25px;font-weight: bold;text-align: center">Please provide with the Info:</p> -->
+
+  <!-- Name Field -->
+  <mat-form-field>    
+    <input matInput placeholder="Name" type="text" formControlName="name" required>
+    <mat-error class="error-message">Enter Name</mat-error>
+  </mat-form-field>
+<br>  
+
+<!-- City Field -->
+    <mat-form-field>
+      <img src="{{county.flag}}" style="width:20px;height:20px;">
+      <mat-select placeholder="Country" style="margin-left: 20px" formControlName="country" [(value)]="county">
+        <mat-option *ngFor="let c of countries" [value]="c">
+          {{c.country}}
+        </mat-option>
+      </mat-select>
+      <mat-error class="error-message">Enter City</mat-error>
+    </mat-form-field>    
+
+  <br> 
+
+  <!-- Phone Number -->
+  <mat-form-field>    
+    <input matInput style="margin-left: 20px" placeholder="+{{county.phone}}" type="number" formControlName="phone" required>
+    <mat-error class="error-message">Must be 10 digit</mat-error>
+  </mat-form-field>
+  <br>
+
+  <!-- Address -->
+  <mat-form-field>    
+    <input matInput placeholder="Address" type="text" formControlName="address" required>
+    <mat-error class="error-message">Enter Address</mat-error>
+  </mat-form-field>
+  <br>
+
+  <!-- Email -->
+  <mat-form-field>    
+    <input matInput placeholder="E-mail" type="email" formControlName="email" required>
+    <mat-error class="error-message">Wrong Pattern</mat-error>
+  </mat-form-field>
+  <br>
+
+
+  <br>
+
+  <!-- Submit and Reset buttons -->
+  <button mat-raised-button type="submit" [disabled]="!deskForm.valid" style="margin: 5px">Submit</button>
+  <button mat-raised-button type="reset" style="margin: 5px" (click)="reset()">Reset</button>
+
+  <!-- Error produced -->
+  <mat-error class="error-message" *ngIf="err != ''" style="padding: 15px;text-align: center">{{err}}</mat-error>
+</form>
